@@ -26,7 +26,7 @@ struct SplashScreen : View {
     private var theme: Theme
     
     @StateObject var app: AppObserve
-
+    
     @State private var scale: Double = 1
     @State private var width: CGFloat = 50
     var body: some View {
@@ -44,7 +44,31 @@ struct SplashScreen : View {
                     withAnimation() {
                         width = 150
                     }
-                    /*app.findUserBase { it in
+                    //https://github.com/mipar52/google-examples-swift/blob/master/google-examples-swift/Controllers/SpredsheetsController.swift
+                    /*GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                        if let error = error {
+                            
+                            return
+                        }
+                        
+                        func checkStatus(){
+                            if(GIDSignIn.sharedInstance.currentUser != nil){
+                                let user = GIDSignIn.sharedInstance.currentUser
+                                guard let user = user else { return }
+                                let givenName = user.profile?.givenName
+                                let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
+                                self.givenName = givenName ?? ""
+                                self.profilePicUrl = profilePicUrl
+                                self.isLoggedIn = true
+                            }else{
+                                self.isLoggedIn = false
+                                self.givenName = "Not Logged In"
+                                self.profilePicUrl =  ""
+                            }
+                        }
+                    }
+                    
+                    app.findUserBase { it in
                         guard let it else {
                             app.navigateHome(.SIGN_ROUTE)
                             return

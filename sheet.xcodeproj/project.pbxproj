@@ -51,6 +51,10 @@
 		070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1A2C899C9A004A2B60 /* RealmSwift */; };
 		070ADA1E2C899CBB004A2B60 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1D2C899CBB004A2B60 /* Swinject */; };
 		07AD04682C89B93800EE9F42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04672C89B93800EE9F42 /* User.swift */; };
+		07AD046B2C89BF7400EE9F42 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 07AD046A2C89BF7400EE9F42 /* GoogleSignIn */; };
+		07AD046D2C89BF7400EE9F42 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */; };
+		07AD04742C89C60B00EE9F42 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04732C89C60B00EE9F42 /* AuthScreen.swift */; };
+		07AD04762C89C71A00EE9F42 /* AuthObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04752C89C71A00EE9F42 /* AuthObserve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,9 @@
 		070ADA122C899BD6004A2B60 /* ConverterUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterUI.swift; sourceTree = "<group>"; };
 		070ADA152C899BE7004A2B60 /* SecureConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureConst.swift; sourceTree = "<group>"; };
 		07AD04672C89B93800EE9F42 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		07AD046E2C89C12100EE9F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		07AD04732C89C60B00EE9F42 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		07AD04752C89C71A00EE9F42 /* AuthObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthObserve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +114,8 @@
 			files = (
 				070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */,
 				070ADA1E2C899CBB004A2B60 /* Swinject in Frameworks */,
+				07AD046B2C89BF7400EE9F42 /* GoogleSignIn in Frameworks */,
+				07AD046D2C89BF7400EE9F42 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +147,11 @@
 				070AD9E12C899ABE004A2B60 /* data */,
 				070AD9E52C899ABE004A2B60 /* di */,
 				070AD9D42C899ABE004A2B60 /* global */,
+				07AD04712C89C5D000EE9F42 /* ui */,
 				070AD9B92C899AA5004A2B60 /* AppDelegate.swift */,
 				070AD9562C899850004A2B60 /* sheetApp.swift */,
 				070ADA052C899AC7004A2B60 /* Main.swift */,
+				07AD046E2C89C12100EE9F42 /* Info.plist */,
 				070AD95A2C89986B004A2B60 /* Assets.xcassets */,
 				070AD95C2C89986B004A2B60 /* sheet.entitlements */,
 				070AD95D2C89986B004A2B60 /* Preview Content */,
@@ -283,6 +294,23 @@
 			path = di;
 			sourceTree = "<group>";
 		};
+		07AD04712C89C5D000EE9F42 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				07AD04722C89C5EE00EE9F42 /* sign */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		07AD04722C89C5EE00EE9F42 /* sign */ = {
+			isa = PBXGroup;
+			children = (
+				07AD04732C89C60B00EE9F42 /* AuthScreen.swift */,
+				07AD04752C89C71A00EE9F42 /* AuthObserve.swift */,
+			);
+			path = sign;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +330,8 @@
 			packageProductDependencies = (
 				070ADA1A2C899C9A004A2B60 /* RealmSwift */,
 				070ADA1D2C899CBB004A2B60 /* Swinject */,
+				07AD046A2C89BF7400EE9F42 /* GoogleSignIn */,
+				07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */,
 			);
 			productName = sheet;
 			productReference = 070AD9532C899850004A2B60 /* sheet.app */;
@@ -334,6 +364,7 @@
 			packageReferences = (
 				070ADA172C899C9A004A2B60 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				070ADA1C2C899CBB004A2B60 /* XCRemoteSwiftPackageReference "Swinject" */,
+				07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 070AD9542C899850004A2B60 /* Products */;
 			projectDirPath = "";
@@ -369,6 +400,7 @@
 				070ADA032C899ABF004A2B60 /* AppObserve.swift in Sources */,
 				070AD9E72C899ABE004A2B60 /* Const.swift in Sources */,
 				070AD9EE2C899ABE004A2B60 /* BottomBarItemView.swift in Sources */,
+				07AD04762C89C71A00EE9F42 /* AuthObserve.swift in Sources */,
 				070AD9EC2C899ABE004A2B60 /* BottomBar.swift in Sources */,
 				070AD9ED2C899ABE004A2B60 /* BottomBarItem.swift in Sources */,
 				070AD9FA2C899ABF004A2B60 /* PreferenceBase.swift in Sources */,
@@ -399,6 +431,7 @@
 				070AD9EB2C899ABE004A2B60 /* BarBuilder.swift in Sources */,
 				070AD9F52C899ABE004A2B60 /* ToastView.swift in Sources */,
 				070ADA132C899BD6004A2B60 /* BaseRepoImp.swift in Sources */,
+				07AD04742C89C60B00EE9F42 /* AuthScreen.swift in Sources */,
 				070ADA142C899BD6004A2B60 /* ConverterUI.swift in Sources */,
 				070AD9F32C899ABE004A2B60 /* OutlinedTextField.swift in Sources */,
 			);
@@ -532,6 +565,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sheet/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sheet/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -569,6 +603,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sheet/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sheet/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -635,6 +670,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -647,6 +690,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 070ADA1C2C899CBB004A2B60 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		07AD046A2C89BF7400EE9F42 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
