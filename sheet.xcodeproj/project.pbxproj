@@ -31,7 +31,7 @@
 		070AD9F72C899ABE004A2B60 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D02C899ABE004A2B60 /* Media.swift */; };
 		070AD9F82C899ABF004A2B60 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D12C899ABE004A2B60 /* Utils.swift */; };
 		070AD9F92C899ABF004A2B60 /* Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D22C899ABE004A2B60 /* Web.swift */; };
-		070AD9FA2C899ABF004A2B60 /* PreferenceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D52C899ABE004A2B60 /* PreferenceData.swift */; };
+		070AD9FA2C899ABF004A2B60 /* PreferenceBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D52C899ABE004A2B60 /* PreferenceBase.swift */; };
 		070AD9FB2C899ABF004A2B60 /* PrefRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D62C899ABE004A2B60 /* PrefRepo.swift */; };
 		070AD9FC2C899ABF004A2B60 /* PrefRepoImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9D72C899ABE004A2B60 /* PrefRepoImp.swift */; };
 		070AD9FD2C899ABF004A2B60 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9DA2C899ABE004A2B60 /* Preference.swift */; };
@@ -41,7 +41,6 @@
 		070ADA012C899ABF004A2B60 /* RealmSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9DF2C899ABE004A2B60 /* RealmSync.swift */; };
 		070ADA022C899ABF004A2B60 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9E22C899ABE004A2B60 /* AppModule.swift */; };
 		070ADA032C899ABF004A2B60 /* AppObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9E32C899ABE004A2B60 /* AppObserve.swift */; };
-		070ADA042C899ABF004A2B60 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD9E42C899ABE004A2B60 /* Project.swift */; };
 		070ADA062C899AC7004A2B60 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA052C899AC7004A2B60 /* Main.swift */; };
 		070ADA0D2C899AF8004A2B60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 070ADA0B2C899AF8004A2B60 /* LICENSE */; };
 		070ADA0E2C899AF8004A2B60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 070ADA0C2C899AF8004A2B60 /* README.md */; };
@@ -51,6 +50,7 @@
 		070ADA162C899BE7004A2B60 /* SecureConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA152C899BE7004A2B60 /* SecureConst.swift */; };
 		070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1A2C899C9A004A2B60 /* RealmSwift */; };
 		070ADA1E2C899CBB004A2B60 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1D2C899CBB004A2B60 /* Swinject */; };
+		07AD04682C89B93800EE9F42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04672C89B93800EE9F42 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +80,7 @@
 		070AD9D02C899ABE004A2B60 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		070AD9D12C899ABE004A2B60 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		070AD9D22C899ABE004A2B60 /* Web.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web.swift; sourceTree = "<group>"; };
-		070AD9D52C899ABE004A2B60 /* PreferenceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceData.swift; sourceTree = "<group>"; };
+		070AD9D52C899ABE004A2B60 /* PreferenceBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceBase.swift; sourceTree = "<group>"; };
 		070AD9D62C899ABE004A2B60 /* PrefRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefRepo.swift; sourceTree = "<group>"; };
 		070AD9D72C899ABE004A2B60 /* PrefRepoImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefRepoImp.swift; sourceTree = "<group>"; };
 		070AD9DA2C899ABE004A2B60 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 		070AD9DF2C899ABE004A2B60 /* RealmSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSync.swift; sourceTree = "<group>"; };
 		070AD9E22C899ABE004A2B60 /* AppModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		070AD9E32C899ABE004A2B60 /* AppObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppObserve.swift; sourceTree = "<group>"; };
-		070AD9E42C899ABE004A2B60 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		070ADA052C899AC7004A2B60 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		070ADA0B2C899AF8004A2B60 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		070ADA0C2C899AF8004A2B60 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		070ADA112C899BD6004A2B60 /* BaseRepoImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRepoImp.swift; sourceTree = "<group>"; };
 		070ADA122C899BD6004A2B60 /* ConverterUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterUI.swift; sourceTree = "<group>"; };
 		070ADA152C899BE7004A2B60 /* SecureConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureConst.swift; sourceTree = "<group>"; };
+		07AD04672C89B93800EE9F42 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +227,7 @@
 		070AD9D82C899ABE004A2B60 /* pref */ = {
 			isa = PBXGroup;
 			children = (
-				070AD9D52C899ABE004A2B60 /* PreferenceData.swift */,
+				070AD9D52C899ABE004A2B60 /* PreferenceBase.swift */,
 				070AD9D62C899ABE004A2B60 /* PrefRepo.swift */,
 				070AD9D72C899ABE004A2B60 /* PrefRepoImp.swift */,
 			);
@@ -247,6 +247,7 @@
 			children = (
 				070AD9DA2C899ABE004A2B60 /* Preference.swift */,
 				070AD9DB2C899ABE004A2B60 /* ResultRealm.swift */,
+				07AD04672C89B93800EE9F42 /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -278,7 +279,6 @@
 			children = (
 				070AD9E22C899ABE004A2B60 /* AppModule.swift */,
 				070AD9E32C899ABE004A2B60 /* AppObserve.swift */,
-				070AD9E42C899ABE004A2B60 /* Project.swift */,
 			);
 			path = di;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 				070AD9EE2C899ABE004A2B60 /* BottomBarItemView.swift in Sources */,
 				070AD9EC2C899ABE004A2B60 /* BottomBar.swift in Sources */,
 				070AD9ED2C899ABE004A2B60 /* BottomBarItem.swift in Sources */,
-				070AD9FA2C899ABF004A2B60 /* PreferenceData.swift in Sources */,
+				070AD9FA2C899ABF004A2B60 /* PreferenceBase.swift in Sources */,
 				070AD9FC2C899ABF004A2B60 /* PrefRepoImp.swift in Sources */,
 				070AD9572C899850004A2B60 /* sheetApp.swift in Sources */,
 				070AD9E92C899ABE004A2B60 /* Theme.swift in Sources */,
@@ -387,6 +387,7 @@
 				070ADA022C899ABF004A2B60 /* AppModule.swift in Sources */,
 				070ADA002C899ABF004A2B60 /* Realm.swift in Sources */,
 				070AD9FD2C899ABF004A2B60 /* Preference.swift in Sources */,
+				07AD04682C89B93800EE9F42 /* User.swift in Sources */,
 				070ADA062C899AC7004A2B60 /* Main.swift in Sources */,
 				070AD9EF2C899ABE004A2B60 /* BackButton.swift in Sources */,
 				070AD9E82C899ABE004A2B60 /* Scope.swift in Sources */,
@@ -395,7 +396,6 @@
 				070AD9F22C899ABE004A2B60 /* NavigationDrawer.swift in Sources */,
 				070AD9F02C899ABE004A2B60 /* BottomSheet.swift in Sources */,
 				070AD9F82C899ABF004A2B60 /* Utils.swift in Sources */,
-				070ADA042C899ABF004A2B60 /* Project.swift in Sources */,
 				070AD9EB2C899ABE004A2B60 /* BarBuilder.swift in Sources */,
 				070AD9F52C899ABE004A2B60 /* ToastView.swift in Sources */,
 				070ADA132C899BD6004A2B60 /* BaseRepoImp.swift in Sources */,
