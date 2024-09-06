@@ -5,7 +5,6 @@ class RealmApi : ScopeFunc {
     
     let realmApp: App
     private var realmLocal: Realm? = nil
-    private var realmCloud: Realm? = nil
     
     init(realmApp: App) {
         self.realmApp = realmApp
@@ -35,44 +34,4 @@ class RealmApi : ScopeFunc {
         return realmLocal
     }
     
-    @BackgroundActor
-    func cloud() async -> Realm? {
-        guard let realmCloud else {
-            do {
-                let user = realmApp.currentUser
-                if user != nil {
-                    realmCloud = try await Realm(
-                        configuration: realmApp.currentUser!.initialSubscriptionBlock,
-                        actor: BackgroundActor.shared,
-                        downloadBeforeOpen: .always
-                    )
-                    return realmCloud
-                } else {
-                    return nil
-                }
-            } catch {
-                return nil
-            }
-        }
-        return realmCloud
-    }
 }
-
-extension User {
-    
-    var initialSubscriptionBlock: Realm.Configuration {
-        var config = self.flexibleSyncConfiguration(initialSubscriptions: { subs in
-       })
-        config.objectTypes = listOfSchemaRealmClass + listOfSchemaEmbeddedRealmClass
-        config.schemaVersion = SCHEMA_VERSION
-        config.eventConfiguration?.errorHandler = { error in
-            print(error.localizedDescription)
-        }
-        return config
-    }
-}
- 
-@globalActor actor BackgroundActor: GlobalActor {
-    static var shared = BackgroundActor()
-}
-

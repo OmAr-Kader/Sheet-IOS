@@ -3,3 +3,5 @@ SecureConst.swift
 ConverterUI.swift
 Views.swift
 Info.plist
+GoogleApi.swift
+SpredsheetsBase.swift

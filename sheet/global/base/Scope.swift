@@ -167,3 +167,7 @@ extension ScopeFunc {
     }
     
 }
+
+@globalActor actor BackgroundActor: GlobalActor {
+    static var shared = BackgroundActor()
+}

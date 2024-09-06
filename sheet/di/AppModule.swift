@@ -3,12 +3,10 @@ import RealmSwift
 import SwiftUI
 import Swinject
 
-//https://github.com/realm/realm-swift
-//https://github.com/Swinject/Swinject
-
 struct Project : ScopeFunc {
     let realmApi: RealmApi
     let pref: PreferenceBase
+    let sheet: SpredsheetsBase
 }
 
 func buildContainer() -> Container {
@@ -17,7 +15,8 @@ func buildContainer() -> Container {
     let realmApi = RealmApi(realmApp: App(id: REALM_APP_ID))
     let pro = Project(
         realmApi: realmApi,
-        pref: PreferenceBase(repository: PrefRepoImp(realmApi: realmApi))
+        pref: PreferenceBase(repository: PrefRepoImp(realmApi: realmApi)),
+        sheet: SpredsheetsBase()
     )
     let theme = Theme(isDarkMode: UITraitCollection.current.userInterfaceStyle.isDarkMode)
     container.register(RealmApi.self) { _  in
@@ -35,8 +34,7 @@ func buildContainer() -> Container {
 
 class Resolver {
     static let shared = Resolver()
-    
-    //get the IOC container
+
     private var container = buildContainer()
     
     func resolve<T>(_ type: T.Type) -> T {

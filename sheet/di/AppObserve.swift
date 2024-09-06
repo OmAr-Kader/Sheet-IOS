@@ -44,6 +44,11 @@ class AppObserve : ObservableObject {
     }
     
     @MainActor
+    func navigateHomeNoAnimation(_ screen: Screen) -> Unit {
+        self.state = self.state.copy(homeScreen: screen)
+    }
+        
+    @MainActor
     func backPress() {
         if !self.navigationPath.isEmpty {
             self.navigationPath.removeLast()
@@ -63,58 +68,21 @@ class AppObserve : ObservableObject {
     func findUserBase(
         invoke: @escaping @MainActor (UserBase?) -> Unit
     ) {
-        guard self.project.realmApi.realmApp.currentUser != nil else {
-            invoke(nil)
-            return
-        }
-        if (self.preferences.isEmpty) {
-            self.inti { it in
-                self.scope.launchBack {
-                    let userBase = await self.fetchUserBase(it)
-                    self.scope.launchMain {
-                        self.preferences = it
-                        invoke(userBase)
-                    }
-                }
-            }
-        } else {
-            self.scope.launchBack {
-                let userBase = await self.fetchUserBase(self.preferences)
+        scope.launchBack {
+            restorePreviousSignIn { userBase in
                 self.scope.launchMain {
+                    if let userBase {
+                        self.state = self.state.copy(userBase: userBase)
+                    }
                     invoke(userBase)
                 }
             }
         }
     }
 
-    @BackgroundActor
-    private func fetchUserBase(_ list: [PreferenceData]) async -> UserBase? {
-        let id = list.last { it in it.keyString == PREF_USER_ID }?.value
-        let name = list.last { it in it.keyString == PREF_USER_NAME }?.value
-        let email = list.last { it in it.keyString == PREF_USER_EMAIL }?.value
-        let userType = list.last { it in it.keyString == PREF_USER_TYPE }?.value
-        if (id == nil || name == nil || email == nil || userType == nil) {
-            return nil
-        }
-        return UserBase(id: id!, name: name!, email: email!, accountType: Int(userType!)!)
-    }
-
-    func updateUserBase(userBase: UserBase, invoke: @escaping @MainActor () -> Unit) {
-        scope.launchBack {
-            var list : [PreferenceData] = []
-            list.append(PreferenceData(keyString: PREF_USER_ID, value: userBase.id))
-            list.append(PreferenceData(keyString: PREF_USER_NAME, value: userBase.name))
-            list.append(PreferenceData(keyString: PREF_USER_EMAIL, value: userBase.email))
-            list.append(PreferenceData(keyString: PREF_USER_TYPE, value: String(userBase.accountType)))
-            await self.project.pref.updatePref(list) { newPref in
-                self.inti { it in
-                    self.scope.launchMain {
-                        self.preferences = it
-                        invoke()
-                    }
-                }
-            }
-        }
+    @MainActor
+    func updateUserBase(userBase: UserBase) {
+        self.state = self.state.copy(userBase: userBase)
     }
 
     func findPrefString(

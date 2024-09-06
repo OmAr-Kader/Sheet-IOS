@@ -5,35 +5,66 @@ struct Main: View {
     
     @Inject
     private var theme: Theme
-        
+    
+    var navigateTo: @MainActor (Screen) -> Unit {
+        return { screen in
+            app.navigateTo(screen)
+        }
+    }
+    
+    var navigateToScreen: @MainActor (ScreenConfig, Screen) -> Unit {
+        return { args, screen in
+            app.writeArguments(screen, args)
+            app.navigateTo(screen)
+        }
+    }
+    
+    var navigateHome: @MainActor (Screen) -> Unit {
+        return { screen in
+            withAnimation {
+                app.navigateHome(screen)
+            }
+        }
+    }
+    
+    var backPress: @MainActor () -> Unit {
+        return {
+            app.backPress()
+        }
+    }
+    
+    
+    var screenConfig: @MainActor (Screen) -> (any ScreenConfig)? {
+        return { screen in
+            return app.findArg(screen: screen)
+        }
+    }
     var body: some View {
         //let isSplash = app.state.homeScreen == Screen.SPLASH_SCREEN_ROUTE
         NavigationStack(path: $app.navigationPath) {
             targetScreen(
-                app.state.homeScreen, app
+                app.state.homeScreen, app, navigateTo: navigateTo, navigateToScreen: navigateToScreen, navigateHome: navigateHome, backPress: backPress, screenConfig: screenConfig
             ).navigationDestination(for: Screen.self) { route in
-                targetScreen(route, app)//.toolbar(.hidden, for: .navigationBar)
+                targetScreen(route, app, navigateTo: navigateTo, navigateToScreen: navigateToScreen, navigateHome: navigateHome, backPress: backPress, screenConfig: screenConfig)//.toolbar(.hidden, for: .navigationBar)
             }
         }/*.prepareStatusBarConfigurator(
-            isSplash ? theme.background : theme.primary, isSplash, theme.isDarkStatusBarText
-        )*/
+          isSplash ? theme.background : theme.primary, isSplash, theme.isDarkStatusBarText
+          )*/
     }
 }
 
 struct SplashScreen : View {
     
-    @Inject
-    private var theme: Theme
     
-    @StateObject var app: AppObserve
-    
+    private let theme = Theme(isDarkMode: UITraitCollection.current.userInterfaceStyle.isDarkMode)
     @State private var scale: Double = 1
     @State private var width: CGFloat = 50
+
     var body: some View {
         FullZStack {
             Image(
                 uiImage: UIImage(
-                    named: "AppIcon"
+                    named: "sociality"
                 )?.withTintColor(
                     UIColor(theme.textColor)
                 ) ?? UIImage()
@@ -44,37 +75,6 @@ struct SplashScreen : View {
                     withAnimation() {
                         width = 150
                     }
-                    //https://github.com/mipar52/google-examples-swift/blob/master/google-examples-swift/Controllers/SpredsheetsController.swift
-                    /*GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                        if let error = error {
-                            
-                            return
-                        }
-                        
-                        func checkStatus(){
-                            if(GIDSignIn.sharedInstance.currentUser != nil){
-                                let user = GIDSignIn.sharedInstance.currentUser
-                                guard let user = user else { return }
-                                let givenName = user.profile?.givenName
-                                let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
-                                self.givenName = givenName ?? ""
-                                self.profilePicUrl = profilePicUrl
-                                self.isLoggedIn = true
-                            }else{
-                                self.isLoggedIn = false
-                                self.givenName = "Not Logged In"
-                                self.profilePicUrl =  ""
-                            }
-                        }
-                    }
-                    
-                    app.findUserBase { it in
-                        guard let it else {
-                            app.navigateHome(.SIGN_ROUTE)
-                            return
-                        }
-                        app.navigateHome(.HOME_ROUTE())
-                    }*/
                 }
         }.background(theme.background)
     }

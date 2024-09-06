@@ -45,11 +45,20 @@
 		070ADA0D2C899AF8004A2B60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 070ADA0B2C899AF8004A2B60 /* LICENSE */; };
 		070ADA0E2C899AF8004A2B60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 070ADA0C2C899AF8004A2B60 /* README.md */; };
 		070ADA102C899B7A004A2B60 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA0F2C899B7A004A2B60 /* Views.swift */; };
-		070ADA132C899BD6004A2B60 /* BaseRepoImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA112C899BD6004A2B60 /* BaseRepoImp.swift */; };
 		070ADA142C899BD6004A2B60 /* ConverterUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA122C899BD6004A2B60 /* ConverterUI.swift */; };
 		070ADA162C899BE7004A2B60 /* SecureConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ADA152C899BE7004A2B60 /* SecureConst.swift */; };
 		070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1A2C899C9A004A2B60 /* RealmSwift */; };
 		070ADA1E2C899CBB004A2B60 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 070ADA1D2C899CBB004A2B60 /* Swinject */; };
+		079D65992C8ABE0C0074D498 /* GoogleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65982C8ABE0C0074D498 /* GoogleApi.swift */; };
+		079D659C2C8AC2930074D498 /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 079D659B2C8AC2930074D498 /* GoogleAPIClientForRESTCore */; };
+		079D659F2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets in Frameworks */ = {isa = PBXBuildFile; productRef = 079D659E2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets */; };
+		079D65A12C8ACA870074D498 /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 079D65A02C8ACA870074D498 /* GoogleAPIClientForREST_Drive */; };
+		079D65A32C8AD0090074D498 /* Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65A22C8AD0090074D498 /* Sheet.swift */; };
+		079D65A72C8AD40C0074D498 /* SpredsheetsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65A62C8AD40C0074D498 /* SpredsheetsBase.swift */; };
+		079D65AA2C8AE9290074D498 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65A92C8AE9290074D498 /* HomeScreen.swift */; };
+		079D65AC2C8AE9410074D498 /* HomeObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65AB2C8AE9410074D498 /* HomeObserve.swift */; };
+		079D65B02C8AF4F10074D498 /* SheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65AF2C8AF4F10074D498 /* SheetScreen.swift */; };
+		079D65B22C8AF5020074D498 /* SheetObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D65B12C8AF5020074D498 /* SheetObserve.swift */; };
 		07AD04682C89B93800EE9F42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04672C89B93800EE9F42 /* User.swift */; };
 		07AD046B2C89BF7400EE9F42 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 07AD046A2C89BF7400EE9F42 /* GoogleSignIn */; };
 		07AD046D2C89BF7400EE9F42 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */; };
@@ -98,9 +107,15 @@
 		070ADA0B2C899AF8004A2B60 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		070ADA0C2C899AF8004A2B60 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		070ADA0F2C899B7A004A2B60 /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
-		070ADA112C899BD6004A2B60 /* BaseRepoImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRepoImp.swift; sourceTree = "<group>"; };
 		070ADA122C899BD6004A2B60 /* ConverterUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterUI.swift; sourceTree = "<group>"; };
 		070ADA152C899BE7004A2B60 /* SecureConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureConst.swift; sourceTree = "<group>"; };
+		079D65982C8ABE0C0074D498 /* GoogleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleApi.swift; sourceTree = "<group>"; };
+		079D65A22C8AD0090074D498 /* Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheet.swift; sourceTree = "<group>"; };
+		079D65A62C8AD40C0074D498 /* SpredsheetsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpredsheetsBase.swift; sourceTree = "<group>"; };
+		079D65A92C8AE9290074D498 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		079D65AB2C8AE9410074D498 /* HomeObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObserve.swift; sourceTree = "<group>"; };
+		079D65AF2C8AF4F10074D498 /* SheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScreen.swift; sourceTree = "<group>"; };
+		079D65B12C8AF5020074D498 /* SheetObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetObserve.swift; sourceTree = "<group>"; };
 		07AD04672C89B93800EE9F42 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		07AD046E2C89C12100EE9F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		07AD04732C89C60B00EE9F42 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
@@ -112,10 +127,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079D65A12C8ACA870074D498 /* GoogleAPIClientForREST_Drive in Frameworks */,
+				079D659C2C8AC2930074D498 /* GoogleAPIClientForRESTCore in Frameworks */,
 				070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */,
 				070ADA1E2C899CBB004A2B60 /* Swinject in Frameworks */,
 				07AD046B2C89BF7400EE9F42 /* GoogleSignIn in Frameworks */,
 				07AD046D2C89BF7400EE9F42 /* GoogleSignInSwift in Frameworks */,
+				079D659F2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +148,7 @@
 				070ADA0C2C899AF8004A2B60 /* README.md */,
 				070AD9552C899850004A2B60 /* sheet */,
 				070AD9542C899850004A2B60 /* Products */,
+				079D659D2C8AC3720074D498 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,6 +278,7 @@
 				070AD9DA2C899ABE004A2B60 /* Preference.swift */,
 				070AD9DB2C899ABE004A2B60 /* ResultRealm.swift */,
 				07AD04672C89B93800EE9F42 /* User.swift */,
+				079D65A22C8AD0090074D498 /* Sheet.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -266,7 +286,6 @@
 		070AD9E02C899ABE004A2B60 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				070ADA112C899BD6004A2B60 /* BaseRepoImp.swift */,
 				070AD9DD2C899ABE004A2B60 /* Converter.swift */,
 				070ADA122C899BD6004A2B60 /* ConverterUI.swift */,
 				070AD9DE2C899ABE004A2B60 /* Realm.swift */,
@@ -279,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				070AD9D92C899ABE004A2B60 /* dataSources */,
+				079D65972C8ABDE60074D498 /* google */,
 				070AD9DC2C899ABE004A2B60 /* model */,
 				070AD9E02C899ABE004A2B60 /* util */,
 			);
@@ -294,9 +314,45 @@
 			path = di;
 			sourceTree = "<group>";
 		};
+		079D65972C8ABDE60074D498 /* google */ = {
+			isa = PBXGroup;
+			children = (
+				079D65982C8ABE0C0074D498 /* GoogleApi.swift */,
+				079D65A62C8AD40C0074D498 /* SpredsheetsBase.swift */,
+			);
+			path = google;
+			sourceTree = "<group>";
+		};
+		079D659D2C8AC3720074D498 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		079D65A82C8AE9130074D498 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				079D65A92C8AE9290074D498 /* HomeScreen.swift */,
+				079D65AB2C8AE9410074D498 /* HomeObserve.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		079D65AE2C8AF4DF0074D498 /* sheet */ = {
+			isa = PBXGroup;
+			children = (
+				079D65AF2C8AF4F10074D498 /* SheetScreen.swift */,
+				079D65B12C8AF5020074D498 /* SheetObserve.swift */,
+			);
+			path = sheet;
+			sourceTree = "<group>";
+		};
 		07AD04712C89C5D000EE9F42 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				079D65AE2C8AF4DF0074D498 /* sheet */,
+				079D65A82C8AE9130074D498 /* home */,
 				07AD04722C89C5EE00EE9F42 /* sign */,
 			);
 			path = ui;
@@ -332,6 +388,9 @@
 				070ADA1D2C899CBB004A2B60 /* Swinject */,
 				07AD046A2C89BF7400EE9F42 /* GoogleSignIn */,
 				07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */,
+				079D659B2C8AC2930074D498 /* GoogleAPIClientForRESTCore */,
+				079D659E2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets */,
+				079D65A02C8ACA870074D498 /* GoogleAPIClientForREST_Drive */,
 			);
 			productName = sheet;
 			productReference = 070AD9532C899850004A2B60 /* sheet.app */;
@@ -365,6 +424,7 @@
 				070ADA172C899C9A004A2B60 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				070ADA1C2C899CBB004A2B60 /* XCRemoteSwiftPackageReference "Swinject" */,
 				07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
 			);
 			productRefGroup = 070AD9542C899850004A2B60 /* Products */;
 			projectDirPath = "";
@@ -397,7 +457,9 @@
 			files = (
 				070AD9F42C899ABE004A2B60 /* StatusBar.swift in Sources */,
 				070AD9BA2C899AA5004A2B60 /* AppDelegate.swift in Sources */,
+				079D65AA2C8AE9290074D498 /* HomeScreen.swift in Sources */,
 				070ADA032C899ABF004A2B60 /* AppObserve.swift in Sources */,
+				079D65B22C8AF5020074D498 /* SheetObserve.swift in Sources */,
 				070AD9E72C899ABE004A2B60 /* Const.swift in Sources */,
 				070AD9EE2C899ABE004A2B60 /* BottomBarItemView.swift in Sources */,
 				07AD04762C89C71A00EE9F42 /* AuthObserve.swift in Sources */,
@@ -410,13 +472,17 @@
 				070ADA012C899ABF004A2B60 /* RealmSync.swift in Sources */,
 				070ADA102C899B7A004A2B60 /* Views.swift in Sources */,
 				070AD9FF2C899ABF004A2B60 /* Converter.swift in Sources */,
+				079D65AC2C8AE9410074D498 /* HomeObserve.swift in Sources */,
 				070AD9FE2C899ABF004A2B60 /* ResultRealm.swift in Sources */,
 				070AD9F12C899ABE004A2B60 /* Image.swift in Sources */,
 				070AD9E62C899ABE004A2B60 /* Color.swift in Sources */,
 				070ADA162C899BE7004A2B60 /* SecureConst.swift in Sources */,
 				070AD9F92C899ABF004A2B60 /* Web.swift in Sources */,
 				070AD9FB2C899ABF004A2B60 /* PrefRepo.swift in Sources */,
+				079D65A32C8AD0090074D498 /* Sheet.swift in Sources */,
 				070ADA022C899ABF004A2B60 /* AppModule.swift in Sources */,
+				079D65B02C8AF4F10074D498 /* SheetScreen.swift in Sources */,
+				079D65A72C8AD40C0074D498 /* SpredsheetsBase.swift in Sources */,
 				070ADA002C899ABF004A2B60 /* Realm.swift in Sources */,
 				070AD9FD2C899ABF004A2B60 /* Preference.swift in Sources */,
 				07AD04682C89B93800EE9F42 /* User.swift in Sources */,
@@ -428,9 +494,9 @@
 				070AD9F22C899ABE004A2B60 /* NavigationDrawer.swift in Sources */,
 				070AD9F02C899ABE004A2B60 /* BottomSheet.swift in Sources */,
 				070AD9F82C899ABF004A2B60 /* Utils.swift in Sources */,
+				079D65992C8ABE0C0074D498 /* GoogleApi.swift in Sources */,
 				070AD9EB2C899ABE004A2B60 /* BarBuilder.swift in Sources */,
 				070AD9F52C899ABE004A2B60 /* ToastView.swift in Sources */,
-				070ADA132C899BD6004A2B60 /* BaseRepoImp.swift in Sources */,
 				07AD04742C89C60B00EE9F42 /* AuthScreen.swift in Sources */,
 				070ADA142C899BD6004A2B60 /* ConverterUI.swift in Sources */,
 				070AD9F32C899ABE004A2B60 /* OutlinedTextField.swift in Sources */,
@@ -670,6 +736,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -690,6 +764,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 070ADA1C2C899CBB004A2B60 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		079D659B2C8AC2930074D498 /* GoogleAPIClientForRESTCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForRESTCore;
+		};
+		079D659E2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Sheets;
+		};
+		079D65A02C8ACA870074D498 /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
 		};
 		07AD046A2C89BF7400EE9F42 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

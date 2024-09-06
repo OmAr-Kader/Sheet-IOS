@@ -6,19 +6,34 @@
 //
 
 import SwiftUI
-import GoogleSignIn
 
 @main
 struct sheetApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+    @State var isInjected: Bool = false
+
     var body: some Scene {
         WindowGroup {
-            Main(app: delegate.app).onOpenURL { url in
-                GIDSignIn.sharedInstance.handle(url)
-                //GIDSignIn.sharedInstance.signOut()
-              }
+            ZStack {
+                if isInjected {
+                    Main(app: delegate.app)
+                } else {
+                    SplashScreen().task {
+                        let _ = await Task { @MainActor in
+                            delegate.app.findUserBase { it in
+                                if !isInjected {
+                                    withAnimation {
+                                        delegate.app.navigateHomeNoAnimation(it != nil ? .HOME_SCREEN_ROUTE : .AUTH_SCREEN_ROUTE)
+                                        isInjected.toggle()
+                                    }
+                                }
+                            }
+                        }.result
+                    }
+                }
+            }
         }
     }
 }
