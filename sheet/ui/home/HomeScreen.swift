@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeScreen : View {
     
+    var navigateToScreen: @MainActor (ScreenConfig, Screen) -> Unit
+    
     @StateObject private var obs: HomeObserve = HomeObserve()
 
     @Inject
@@ -21,8 +23,12 @@ struct HomeScreen : View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
                     ForEach(Array(state.sheets.enumerated()), id: \.offset) { index, data in
-                        Text("\(data.name)").foregroundStyle(theme.textColor)
-                        Divider().foregroundStyle(theme.textHintAlpha).padding(start: 20, end: 20)
+                        VStack {
+                            Text("\(data.name)").foregroundStyle(theme.textColor)
+                            Divider().foregroundStyle(theme.textHintAlpha).padding(start: 20, end: 20)
+                        }.onTapGesture {
+                            navigateToScreen(SheetConfig(sheetFile: data), Screen.SHEET_SCREEN_ROUTE)
+                        }
                     }
                 }
             }

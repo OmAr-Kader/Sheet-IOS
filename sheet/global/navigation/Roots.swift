@@ -15,7 +15,7 @@ extension View {
         case .AUTH_SCREEN_ROUTE:
             AuthScreen(app: app)
         case .HOME_SCREEN_ROUTE:
-            HomeScreen()
+            HomeScreen(navigateToScreen: navigateToScreen)
         case .SHEET_SCREEN_ROUTE:
             SheetScreen(screenConfig: screenConfig)
         }
