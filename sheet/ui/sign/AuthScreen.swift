@@ -23,10 +23,11 @@ struct AuthScreen : View {
         ZStack {
             VStack {
                 Text("Hi there").foregroundStyle(theme.textColor).font(.headline)
-                Spacer().frame(height: 50)
+                Spacer().frame(height: 20)
                 GoogleSignInButton(scheme: theme.isDarkMode ? .dark : .light, style: .wide, state: .normal) {
                     obs.signIn { userBase in
                         app.updateUserBase(userBase: userBase)
+                        app.navigateHome(.HOME_SCREEN_ROUTE)
                     } failed: {
                         toast = Toast(style: .error, message: "Failed")
                     }
@@ -37,7 +38,6 @@ struct AuthScreen : View {
         }.toastView(toast: $toast)
             .onOpenURL { url in
                 GIDSignIn.sharedInstance.handle(url)
-                //GIDSignIn.sharedInstance.signOut()
             }
     }
 }

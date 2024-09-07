@@ -3,12 +3,7 @@ import RealmSwift
 
 class RealmApi : ScopeFunc {
     
-    let realmApp: App
     private var realmLocal: Realm? = nil
-    
-    init(realmApp: App) {
-        self.realmApp = realmApp
-    }
     
     @BackgroundActor
     func local() async -> Realm? {

@@ -12,7 +12,7 @@ struct Project : ScopeFunc {
 func buildContainer() -> Container {
     let container = Container()
     
-    let realmApi = RealmApi(realmApp: App(id: REALM_APP_ID))
+    let realmApi = RealmApi()
     let pro = Project(
         realmApi: realmApi,
         pref: PreferenceBase(repository: PrefRepoImp(realmApi: realmApi)),

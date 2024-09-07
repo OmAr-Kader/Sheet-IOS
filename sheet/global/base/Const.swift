@@ -6,4 +6,5 @@ let PREF_USER_NAME: String = "userName"
 let PREF_USER_EMAIL: String = "userEmail"
 let PREF_USER_TYPE: String = "userType"
 
-let SPRED_SHEET_HEAD_REST = "mimeType = 'application/vnd.google-apps.spreadsheet'"
+let SPRAED_SHEET_HEAD_REST = "mimeType = 'application/vnd.google-apps.spreadsheet'"
+let SPREAD_SHEET_MIMETYPE_REST = "application/vnd.google-apps.spreadsheet"

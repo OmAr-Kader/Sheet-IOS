@@ -133,23 +133,6 @@ class AppObserve : ObservableObject {
         state = state.copy(route, screenConfig)
     }
     
-    @MainActor
-    func signOut(_ invoke: @escaping @MainActor () -> Unit,_ failed: @escaping @MainActor () -> Unit) {
-        scope.launchBack {
-            let result = await self.project.pref.deletePrefAll()
-            if result == REALM_SUCCESS {
-                self.scope.launchMain {
-                    invoke()
-                }
-            } else {
-                self.scope.launchMain {
-                    failed()
-                }
-            }
-        }
-    }
-
-    
     private func cancelSession() {
         prefsTask?.cancel()
         prefsTask = nil

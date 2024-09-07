@@ -4,6 +4,7 @@
 //
 //  Created by OmAr on 06/09/2024.
 //
+import Foundation
 
 struct SheetFile {
     let id: String
@@ -35,7 +36,7 @@ struct SheetFile {
 struct Sheet {
     
     let file: SheetFile
-    let rows: [SheetItem]
+    var rows: [SheetItem]
     let range: String?
     
     init() {
@@ -49,14 +50,81 @@ struct Sheet {
         self.rows = rows
         self.range = range
     }
+    
+    func copy(rows: [SheetItem]) -> Sheet {
+        return Sheet(file: file, rows: rows, range: range)
+    }
 }
 
-struct SheetItem {
-    let isChanged: Bool
-    let values: [String]
+struct SheetItem : Hashable {
+    var values: [SheetItemValue]
     let rowNumber: Int
+        
+    var id: String
     
-    var id: String {
-        String(rowNumber) + String(isChanged) + String(values.count)
+    @BackgroundActor
+    init(values: [SheetItemValue], rowNumber: Int) {
+        self.values = values
+        self.rowNumber = rowNumber
+        self.id = String(rowNumber) + values.map({ it in
+            it.valueNative
+        }).joined()
     }
+    
+    mutating func copy(values: [SheetItemValue]) -> Self {
+        self.values = values
+        self.id = String(rowNumber) + values.map({ it in
+            it.valueNative
+        }).joined()
+        print("==> " + id)
+        return self
+    }
+}
+
+
+class SheetItemValue : ObservableObject, Hashable, Equatable {
+    
+    @Published var value: String
+    var valueNative: String
+    let itemWidth: CGFloat
+    let rowCol: String
+    var isChanged: Bool
+
+    var id: String {
+        value + rowCol
+    }
+    
+    var idTextField: String {
+        valueNative + rowCol
+    }
+    
+    init(value: String, itemWidth: CGFloat, rowCol: String) {
+        self.value = value
+        self.valueNative = value
+        self.itemWidth = itemWidth
+        self.rowCol = rowCol
+        self.isChanged = false
+    }
+    
+    @MainActor
+    func copy(value: String) -> Self {
+        self.value = value
+        self.isChanged = true
+        return self
+    }
+
+    @BackgroundActor
+    func afterSave() -> Self {
+        self.valueNative = value
+        self.isChanged = false
+        return self
+    }
+    
+    static func == (lhs: SheetItemValue, rhs: SheetItemValue) -> Bool {
+          return lhs.valueNative == rhs.valueNative
+      }
+      
+      func hash(into hasher: inout Hasher) {
+          hasher.combine(valueNative)
+      }
 }

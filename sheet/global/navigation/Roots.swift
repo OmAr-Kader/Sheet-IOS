@@ -17,7 +17,7 @@ extension View {
         case .HOME_SCREEN_ROUTE:
             HomeScreen(navigateToScreen: navigateToScreen)
         case .SHEET_SCREEN_ROUTE:
-            SheetScreen(screenConfig: screenConfig)
+            SheetScreen(screenConfig: screenConfig, backPress: backPress)
         }
     }
 }

@@ -1,8 +1,8 @@
 import Foundation
+import UIKit
 //import SwiftDate
 
 typealias Unit = Void
-
 
 var currentTime: Int64 {
     return Int64(Date.now.timeIntervalSince1970 * 1000.0)
@@ -101,11 +101,21 @@ extension String {
         return dateFormatter.date(from: self)!
     }
 
+    
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        return (self as NSString).size(withAttributes: fontAttributes).width
+    }
 }
 
 
 extension Int {
 
+    func maxTextWidth() -> CGFloat {
+         let characterWidth: CGFloat = 7.0 // Approximate width of a character
+         return characterWidth * CGFloat(self)
+     }
+    
     func saveMin(_ num: Int) ->  Int {
         let min = self - num
         return min < 0 ? 0 : min
