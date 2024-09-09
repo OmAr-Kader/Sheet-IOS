@@ -27,39 +27,51 @@ struct SheetScreen : View {
         ZStack {
             VStack {
                 ScrollView([.horizontal, .vertical]) {
-                    LazyVStack {
+                    LazyVStack(alignment: .leading, spacing: 20) {
                         ForEach(Array(state.sheet.rows.enumerated()), id: \.element) { indexRow, row in
-                            LazyHStack {
+                            LazyHStack(spacing: 10) {
                                 ForEach(Array(row.values.enumerated()), id: \.element.idTextField) { indexCol, value in
                                     let value = value as SheetItemValue
                                     SheetListItem(value: value, theme: theme) { str in
                                         obs.onChange(indexRow: indexRow, indexCol: indexCol, text: str)
-                                    }.id(value.idTextField)
+                                    }
                                 }
+                                if indexRow == 0 {
+                                    AddSheetItemButton(title: "Add Column") {
+                                        obs.addColumn { it in
+                                            withAnimation { obs.updateSheet(newSheet: it) }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        AddSheetItemButton(title: "Add Row") {
+                            obs.addRow { it in
+                                withAnimation { obs.updateSheet(newSheet: it) }
                             }
                         }
                     }
                 }
             }
             LoadingScreen(isLoading: state.isProcess)
-        }.toastView(toast: $toast).onAppear {
+        }.background(theme.background).toastView(toast: $toast).onAppear {
             guard let args = screenConfig(Screen.SHEET_SCREEN_ROUTE) as? SheetConfig else {
                 return
             }
             title = args.sheetFile.name
             obs.loadData(args.sheetFile)
         }.toolbar {
-            ToolbarItem(placement: .principal) { // <3>
+            ToolbarItem(placement: .principal) {
                 VStack {
-                    Text(title).font(.headline)
+                    Text(title).font(.headline).foregroundStyle(theme.textColor)
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
                     obs.onSave {
                         
-                    } failed: {
-                        
+                    } failed: { it in
+                        toast = Toast(style: .error, message: it)
                     }
                 }.disabled(!state.isChanged)
             }
@@ -89,13 +101,14 @@ struct SheetListItem : View {
             ).foregroundStyle(theme.textColor)
                 .font(.system(size: 17))
                 .padding(all: 0)
-                .frame(width: value.itemWidth, alignment: .leading)
+                .frame(minHeight: 25)
+                .frame(width: value.itemWidth == 0 ? 150 : value.itemWidth, alignment: .leading)
                 .fixedSize(horizontal: false, vertical: true)
                 .lineLimit(1)
                 .preferredColorScheme(theme.isDarkMode ? .dark : .light)
                 .autocapitalization(.none)
                 .background(Color.clear)
-            if value.isChanged {
+            if value.isChanged { // The height of the whole Row doesn't change if not the first item is "isChanged", to handel that you cane create a mode for the whole row, if any item's height changed, the inside Height changed included the blue background, and the whole row's high only change from outside
                 Divider().padding(start: 5, end: 5)
                 Text(value.valueNative)
                     .foregroundStyle(theme.textHintColor)
@@ -109,3 +122,25 @@ struct SheetListItem : View {
             .border(Color.gray)
     }
 }
+
+
+
+struct AddSheetItemButton : View {
+ 
+    let title: String
+    let action: () -> Unit
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            Image(systemName: "plus")  // "Add" icon
+                .font(.system(size: 18, weight: .bold))
+            Text(title)
+                .fontWeight(.bold)
+                .font(.system(size: 18))
+        }.padding(top: 5, start: 15, bottom: 5, end: 15)
+        .foregroundColor(.white)
+        .background(Color.blue)
+        .cornerRadius(10).onTapGesture(perform: action)
+    }
+}
+

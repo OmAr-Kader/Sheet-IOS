@@ -41,16 +41,20 @@ struct HomeScreen : View {
                 isSheetPresented = false
                 obs.addSheetFile(name: name)
             }
-        }.toastView(toast: $toast).onAppear {
-            obs.loadData()
+        }.background(theme.background).toastView(toast: $toast).onAppear {
+            obs.loadData { sheets in
+                withAnimation {
+                    obs.updateSheets(sheets: sheets)
+                }
+            }
         }.toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button(action: {
                         isSheetPresented = true
                     }) {
-                        Label("Create a file", systemImage: "doc")
-                    }
+                        Label("Create a file", systemImage: "doc").background(theme.backDark).foregroundStyle(theme.textColor)
+                    }.background(theme.backDark).foregroundStyle(theme.textColor)
                     Button {
                         obs.signOut {
                             exit(0)
@@ -58,21 +62,22 @@ struct HomeScreen : View {
                             toast = Toast(style: .error, message: "Failed")
                         }
                     } label: {
-                        Label("Sign Out", systemImage: "door.right.hand.open")
-                    }
+                        Label("Sign Out", systemImage: "door.right.hand.open").background(theme.backDark).foregroundStyle(theme.textColor)
+                    }.background(theme.backDark).foregroundStyle(theme.textColor)
+                } label: {
+                    Label("Add", systemImage: "plus")
                 }
-            label: {
-                Label("Add", systemImage: "plus")
             }
-            }
-            ToolbarItem(placement: .principal) { // <3>
+            ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Sheet").font(.headline)
+                    Text("Sheet").font(.headline).foregroundStyle(theme.textColor)
                 }
             }
         }
     }
 }
+
+
 
 struct SheetNameInputSheet: View {
 

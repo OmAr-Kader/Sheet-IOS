@@ -46,27 +46,33 @@ class SheetObserve : ObservableObject {
     }
     
     @MainActor
-    func onSave(invoke: @MainActor @escaping () -> Unit, failed: @MainActor @escaping () -> Unit) {
+    func onSave(invoke: @MainActor @escaping () -> Unit, failed: @MainActor @escaping (String) -> Unit) {
         let sheet = self.state.sheet
         self.setMainProcess(true)
         scope.launchBack {
-            print("==> 1")
-            self.project.sheet.updateSheet(sheet) {
-                print("==> 2")
-                let newSheet = self.aftetOnChanged(sheet: sheet)
-                print("==> 3")
+            if sheet.rows.map({ it in
+                it.values.map { itt in
+                    itt.value
+                }.joined()
+            }).joined().isEmpty || sheet.file.id.isEmpty {
                 self.scope.launchMain {
-                    print("==> 4")
+                    self.setMainProcess(false)
+                    failed("Shouldn't be empty")
+                }
+                return
+            }
+            self.project.sheet.updateSheet(sheet, range: sheet.calculateRange()) {
+                let newSheet = self.aftetOnChanged(sheet: sheet)
+                self.scope.launchMain {
                     self.state = self.state.copy(sheet: newSheet, isChanged: false, isProcess: false)
                     invoke()
                 }
             } failed: {
                 self.scope.launchMain {
                     self.setMainProcess(false)
-                    failed()
+                    failed("Failed")
                 }
             }
-
         }
     }
     
@@ -79,6 +85,35 @@ class SheetObserve : ObservableObject {
             })
         }
         return sheet.copy(rows: rows)
+    }
+    
+    @MainActor
+    func addColumn(invoke: @MainActor @escaping (Sheet) -> Unit) {
+        let state = self.state
+        scope.launchBack {
+            let newSheet = state.sheet.copy(rows: state.sheet.rows.addExternalColumn())
+            self.scope.launchMain {
+                invoke(newSheet)
+            }
+        }
+    }
+    
+    @MainActor
+    func addRow(invoke: @MainActor @escaping (Sheet) -> Unit) {
+        let state = self.state
+        scope.launchBack {
+            let newSheet = state.sheet.copy(rows: state.sheet.rows.addExternalRow())
+            self.scope.launchMain {
+                invoke(newSheet)
+            }
+        }
+    }
+    
+    @MainActor
+    func updateSheet(newSheet: Sheet) {
+        self.scope.launchMain {
+            self.state = self.state.copy(sheet: newSheet, isChanged: true)
+        }
     }
     
     private func setProcess(_ isProcess: Bool) {

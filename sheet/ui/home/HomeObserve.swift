@@ -18,13 +18,20 @@ class HomeObserve : ObservableObject {
     @Published var state = State()
     
     @MainActor
-    func loadData() {
+    func loadData(invoke: @MainActor ([SheetFile]) -> Unit) {
         self.scope.launchBack {
             self.project.sheet.getAllSheetsFile { sheets in
                 self.scope.launchMain {
                     self.state = self.state.copy(sheets: sheets, isProcess: false)
                 }
             }
+        }
+    }
+    
+    @MainActor
+    func updateSheets(sheets: [SheetFile]) {
+        self.scope.launchMain {
+            self.state = self.state.copy(sheets: sheets, isProcess: false)
         }
     }
     
@@ -47,6 +54,7 @@ class HomeObserve : ObservableObject {
     @MainActor
     func signOut(_ invoke: @escaping @MainActor () -> Unit,_ failed: @escaping @MainActor () -> Unit) {
         scope.launchBack {
+            await signOutGoogle()
             let result = await self.project.pref.deletePrefAll()
             if result == REALM_SUCCESS {
                 await signOutGoogle()

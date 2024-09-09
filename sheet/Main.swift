@@ -64,7 +64,7 @@ struct SplashScreen : View {
         FullZStack {
             Image(
                 uiImage: UIImage(
-                    named: "sociality"
+                    named: "AppIcon"
                 )?.withTintColor(
                     UIColor(theme.textColor)
                 ) ?? UIImage()

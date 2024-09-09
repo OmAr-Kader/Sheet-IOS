@@ -76,7 +76,6 @@ struct SheetItem : Hashable {
         self.id = String(rowNumber) + values.map({ it in
             it.valueNative
         }).joined()
-        print("==> " + id)
         return self
     }
 }
@@ -104,6 +103,7 @@ class SheetItemValue : ObservableObject, Hashable, Equatable {
         self.itemWidth = itemWidth
         self.rowCol = rowCol
         self.isChanged = false
+        //print("-----> " + id)
     }
     
     @MainActor

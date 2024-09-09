@@ -20,7 +20,7 @@ struct AuthScreen : View {
     private var theme: Theme
     
     var body: some View {
-        ZStack {
+        FullZStack {
             VStack {
                 Text("Hi there").foregroundStyle(theme.textColor).font(.headline)
                 Spacer().frame(height: 20)
@@ -35,7 +35,7 @@ struct AuthScreen : View {
                     .accessibility(hint: Text("Sign in with Google button."))
                     .padding()
             }
-        }.toastView(toast: $toast)
+        }.background(theme.background).toastView(toast: $toast)
             .onOpenURL { url in
                 GIDSignIn.sharedInstance.handle(url)
             }
