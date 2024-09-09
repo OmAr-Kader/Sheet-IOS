@@ -1,6 +1,6 @@
 # Sheet SwiftUI App
 
-**Sheet IOS** is an iOS app that integrates with **Google Spreadsheets**, **Google Sign-In**, and **Realm local storage**. It allows users to authenticate with their Google accounts, retrieve and manage data from Google Spreadsheets, and store data locally using Realm for offline access.
+**Sheet** is an iOS app that integrates with **Google Spreadsheets**, **Google Sign-In**, and **Realm local storage**. It allows users to authenticate with their Google accounts, retrieve and manage data from Google Spreadsheets, and store data locally using Realm for offline access.
 
 ## Features
 
