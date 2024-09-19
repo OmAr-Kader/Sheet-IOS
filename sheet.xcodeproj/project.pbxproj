@@ -64,7 +64,6 @@
 		07AD046D2C89BF7400EE9F42 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07AD046C2C89BF7400EE9F42 /* GoogleSignInSwift */; };
 		07AD04742C89C60B00EE9F42 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04732C89C60B00EE9F42 /* AuthScreen.swift */; };
 		07AD04762C89C71A00EE9F42 /* AuthObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD04752C89C71A00EE9F42 /* AuthObserve.swift */; };
-		07F878B52C8F09EB00399DA9 /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = 07F878B42C8F09EB00399DA9 /* ScrollKit */; };
 		07F878BC2C8F3CA000399DA9 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 07F878B72C8F3C9F00399DA9 /* 4.png */; };
 		07F878BD2C8F3CA000399DA9 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 07F878B82C8F3C9F00399DA9 /* 3.png */; };
 		07F878BE2C8F3CA000399DA9 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07F878B92C8F3C9F00399DA9 /* 1.png */; };
@@ -138,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F878B52C8F09EB00399DA9 /* ScrollKit in Frameworks */,
 				079D65A12C8ACA870074D498 /* GoogleAPIClientForREST_Drive in Frameworks */,
 				079D659C2C8AC2930074D498 /* GoogleAPIClientForRESTCore in Frameworks */,
 				070ADA1B2C899C9A004A2B60 /* RealmSwift in Frameworks */,
@@ -416,7 +414,6 @@
 				079D659B2C8AC2930074D498 /* GoogleAPIClientForRESTCore */,
 				079D659E2C8AC3720074D498 /* GoogleAPIClientForREST_Sheets */,
 				079D65A02C8ACA870074D498 /* GoogleAPIClientForREST_Drive */,
-				07F878B42C8F09EB00399DA9 /* ScrollKit */,
 			);
 			productName = sheet;
 			productReference = 070AD9532C899850004A2B60 /* sheet.app */;
@@ -451,7 +448,6 @@
 				070ADA1C2C899CBB004A2B60 /* XCRemoteSwiftPackageReference "Swinject" */,
 				07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				079D659A2C8AC2930074D498 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
-				07F878B32C8F09EA00399DA9 /* XCRemoteSwiftPackageReference "ScrollKit" */,
 			);
 			productRefGroup = 070AD9542C899850004A2B60 /* Products */;
 			projectDirPath = "";
@@ -784,14 +780,6 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		07F878B32C8F09EA00399DA9 /* XCRemoteSwiftPackageReference "ScrollKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielsaidi/ScrollKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -829,11 +817,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07AD04692C89BF7400EE9F42 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		07F878B42C8F09EB00399DA9 /* ScrollKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 07F878B32C8F09EA00399DA9 /* XCRemoteSwiftPackageReference "ScrollKit" */;
-			productName = ScrollKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
