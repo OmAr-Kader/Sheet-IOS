@@ -19,7 +19,6 @@ Before you can build and run the project, ensure you have the following:
 
 - Xcode 12.0 or later.
 - Swift 5.0 or later.
-- CocoaPods for dependency management.
 - A Google Cloud project with access to the Google Sheets and Google Drive APIs.
 - A configured **OAuth 2.0 Client ID** for iOS.
 
@@ -31,31 +30,16 @@ Before you can build and run the project, ensure you have the following:
    cd Sheet-IOS
    ```
 
-2. **Install CocoaPods dependencies**:
-   Make sure CocoaPods is installed. If not, install it with:
-   ```bash
-   sudo gem install cocoapods
-   ```
-   Then, run the following command to install the necessary pods:
-   ```bash
-   pod install
-   ```
-   This will install:
-   - `GoogleSignIn`
-   - `GoogleAPIClientForREST_Sheets`
-   - `GoogleAPIClientForREST_Drive`
-   - `RealmSwift`
-
-3. **Configure Google Sign-In**:
+2. **Configure Google Sign-In**:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
    - Create a project and enable the **Google Sheets API** and **Google Drive API**.
    - Under **APIs & Services > Credentials**, create an OAuth 2.0 client ID for iOS and configure your app’s bundle identifier.
    - Download the `GoogleService-Info.plist` file and add it to your project in Xcode.
 
-4. **Realm Setup**:
+3. **Realm Setup**:
    Realm is already integrated via CocoaPods. No additional setup is needed, but you can adjust the Realm configuration in the app as necessary.
 
-5. **Run the app**:
+4. **Run the app**:
    Open the `Sheet-IOS.xcworkspace` in Xcode:
    ```bash
    open Sheet-IOS.xcworkspace
