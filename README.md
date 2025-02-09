@@ -2,6 +2,12 @@
 
 **Sheet** is an iOS app that integrates with **Google Spreadsheets**, **Google Sign-In**, and **Realm local storage**. It allows users to authenticate with their Google accounts, retrieve and manage data from Google Spreadsheets, and store data locally using Realm for offline access.
 
+## 🤩 Support Me
+
+<a href="https://www.buymeacoffee.com/omar_kader">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" width="200" height="70" alt="Buy Me a Coffee">
+</a>
+
 ## Features
 
 - **Google Sign-In Integration**: Users can securely sign in with their Google accounts using the GoogleSignIn SDK.
